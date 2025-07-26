@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BIO DATA-FORM</title>
+<script type="text/javascript">
+function validateform() {
+var name = document.myform.name.value;
+var fn = document.myform.fname.value;
+var mn = document.myform.maname.value;
+var poll = document.myform.poll.value;
+var d = document.myform.dname.value;
+var ad = document.myform.ad.value;
+var mob = document.myform.m.value;
+var mob1 = new RegExp("[0-9]{10}");
+if (name == "") {
+alert("Enter your Name");
+document.myform.name.focus();
+return false;
+}
+if (name.length < 6) {
+alert("Name Length is less than 6 characters");
+document.myform.name.focus();
+
+ 
+return false;
+}
+if (fn == "") {
+alert("Enter your Father Name");
+document.myform.fname.focus();
+return false;
+}
+if (fn.length < 6) {
+alert("Father Name is less than 6 characters");
+document.myform.fname.focus();
+return false;
+}
+if (mn == "") {
+alert("Enter your Mother Name");
+document.myform.maname.focus();
+return false;
+}
+if (mn.length < 6) {
+alert("Mother Name is less than 6 characters");
+document.myform.maname.focus();
+return false;
+}
+if (!poll) {
+alert("Select Gender");
+document.myform.poll[0].focus();
+
+ 
+return false;
+}
+if (d == "") {
+alert("Select Date of Birth");
+document.myform.dname.focus();
+return false;
+}
+var ch1 = document.getElementsByName('check1');
+var ch2 = document.getElementsByName('check2');
+var ischecked1 = false;
+var ischecked2 = false;
+for (var i = 0; i < ch1.length; i++) {
+if (ch1[i].checked) {
+ischecked1 = true;
+break;
+}
+}
+for (var i = 0; i < ch2.length; i++) {
+if (ch2[i].checked) {
+ischecked2 = true;
+break;
+}
+}
+if (!ischecked1 && !ischecked2) {
+alert('Please check at least one hobby!');
+
+return false;
+}
+
+if (!mob.match(mob1)) {
+alert("Enter correct Mobile number");
+document.myform.m.focus();
+return false;
+}
+if (ad == "") {
+alert("Enter your Address");
+document.myform.ad.focus();
+return false;
+}
+alert("Successfully submitted");
+return true;
+}
+</script>
+</head>
+<body>
+<form name="myform" method="post" onsubmit="return validateform()">
+<h1 align="center"><u>BIO DATA-FORM</u></h1>
+<pre>
+<b>Name:</b> <input type="text" name="name">
+<br>
+<b>Father Name:</b> <input type="text" name="fname">
+
+<br>
+<b>Mother Name:</b> <input type="text" name="maname">
+<br>
+<b>Gender:</b> Male:<input type="radio" name="poll" value="Male"> Female:<input
+type="radio" name="poll" value="Female">
+<br>
+<b>Date Of Birth:</b> <input type="date" name="dname">
+<br>
+<b>Hobbies:</b> I love reading <input type="checkbox" name="check1" value="reading">
+I love playing <input type="checkbox" name="check2" value="playing">
+<br>
+<b>Mobile Number:</b> <input type="text" name="m">
+<br>
+<b>Address:</b>
+<textarea rows="10" cols="30" name="ad"></textarea>
+<br>
+<input type="submit" value="SUBMIT"> <input type="reset" value="RESET">
+</pre>
+</form>
+</body>
+</html>
